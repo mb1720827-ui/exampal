@@ -1,0 +1,152 @@
+[
+  {
+    "id": "eng-syn-01",
+    "subject": "english",
+    "topic": "Synonyms",
+    "stem": "Choose the option nearest in meaning to the word in capitals: The principal was ADAMANT that no student would leave before the closing bell.",
+    "options": [
+      "hesitant",
+      "unyielding",
+      "furious",
+      "indifferent"
+    ],
+    "answer": 1,
+    "explanation": "Adamant means refusing to change your mind, so \"unyielding\" is the closest in meaning.",
+    "source": "authored"
+  },
+  {
+    "id": "eng-syn-02",
+    "subject": "english",
+    "topic": "Synonyms",
+    "stem": "Choose the option nearest in meaning to the word in capitals: Ada is METICULOUS in keeping her lecture notes.",
+    "options": [
+      "careless",
+      "boastful",
+      "painstaking",
+      "hurried"
+    ],
+    "answer": 2,
+    "explanation": "Meticulous means paying very careful attention to detail, which is what \"painstaking\" means.",
+    "source": "authored"
+  },
+  {
+    "id": "eng-syn-03",
+    "subject": "english",
+    "topic": "Synonyms",
+    "stem": "Choose the option nearest in meaning to the word in capitals: The instruction on the registration form was AMBIGUOUS.",
+    "options": [
+      "unclear",
+      "lengthy",
+      "official",
+      "harsh"
+    ],
+    "answer": 0,
+    "explanation": "Something ambiguous can be understood in more than one way, so \"unclear\" is the nearest meaning.",
+    "source": "authored"
+  },
+  {
+    "id": "eng-syn-04",
+    "subject": "english",
+    "topic": "Synonyms",
+    "stem": "Choose the option nearest in meaning to the word in capitals: Typewriters have become OBSOLETE in most offices.",
+    "options": [
+      "expensive",
+      "popular",
+      "fragile",
+      "outdated"
+    ],
+    "answer": 3,
+    "explanation": "Obsolete describes something no longer in use because something newer has replaced it, so \"outdated\" is correct.",
+    "source": "authored"
+  },
+  {
+    "id": "eng-syn-05",
+    "subject": "english",
+    "topic": "Synonyms",
+    "stem": "Choose the option nearest in meaning to the word in capitals: The fans were JUBILANT after the Super Eagles' victory.",
+    "options": [
+      "exhausted",
+      "overjoyed",
+      "rowdy",
+      "relieved"
+    ],
+    "answer": 1,
+    "explanation": "Jubilant means feeling or expressing great happiness, so \"overjoyed\" is the closest.",
+    "source": "authored"
+  },
+  {
+    "id": "eng-syn-06",
+    "subject": "english",
+    "topic": "Synonyms",
+    "stem": "Choose the option nearest in meaning to the word in capitals: I appreciate your CANDID assessment of my essay.",
+    "options": [
+      "frank",
+      "harsh",
+      "brief",
+      "generous"
+    ],
+    "answer": 0,
+    "explanation": "A candid assessment is open and honest, so \"frank\" is the nearest in meaning.",
+    "source": "authored"
+  },
+  {
+    "id": "eng-syn-07",
+    "subject": "english",
+    "topic": "Synonyms",
+    "stem": "Choose the option nearest in meaning to the word in capitals: The afternoon heat made everyone in the hall feel LETHARGIC.",
+    "options": [
+      "anxious",
+      "irritable",
+      "sluggish",
+      "thirsty"
+    ],
+    "answer": 2,
+    "explanation": "Lethargic means lacking energy, so \"sluggish\" is the closest meaning.",
+    "source": "authored"
+  },
+  {
+    "id": "eng-syn-08",
+    "subject": "english",
+    "topic": "Synonyms",
+    "stem": "Choose the option nearest in meaning to the word in capitals: Only a TENACIOUS candidate can master all these topics in one month.",
+    "options": [
+      "brilliant",
+      "lucky",
+      "wealthy",
+      "persistent"
+    ],
+    "answer": 3,
+    "explanation": "Tenacious means not giving up easily, which is what \"persistent\" means.",
+    "source": "authored"
+  },
+  {
+    "id": "eng-syn-09",
+    "subject": "english",
+    "topic": "Synonyms",
+    "stem": "Choose the option nearest in meaning to the word in capitals: My grandmother has lived a FRUGAL life since she retired.",
+    "options": [
+      "lonely",
+      "thrifty",
+      "miserable",
+      "wasteful"
+    ],
+    "answer": 1,
+    "explanation": "Frugal means careful not to waste money, so \"thrifty\" is correct. \"Wasteful\" is its opposite.",
+    "source": "authored"
+  },
+  {
+    "id": "eng-syn-10",
+    "subject": "english",
+    "topic": "Synonyms",
+    "stem": "Choose the option nearest in meaning to the word in capitals: With the heavy rain, flooding on that road was INEVITABLE.",
+    "options": [
+      "avoidable",
+      "sudden",
+      "unavoidable",
+      "dangerous"
+    ],
+    "answer": 2,
+    "explanation": "Inevitable means certain to happen, so \"unavoidable\" is the nearest meaning. \"Avoidable\" is the opposite.",
+    "source": "authored"
+  }
+]

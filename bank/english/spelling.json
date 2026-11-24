@@ -1,0 +1,122 @@
+[
+  {
+    "id": "eng-spe-01",
+    "subject": "english",
+    "topic": "Spelling",
+    "stem": "Choose the correctly spelt word.",
+    "options": [
+      "accomodation",
+      "accommodation",
+      "acommodation",
+      "acomodation"
+    ],
+    "answer": 1,
+    "explanation": "The correct spelling is \"accommodation\", with double c and double m.",
+    "source": "authored"
+  },
+  {
+    "id": "eng-spe-02",
+    "subject": "english",
+    "topic": "Spelling",
+    "stem": "Choose the correctly spelt word.",
+    "options": [
+      "embarassment",
+      "embarrasment",
+      "embarrassment",
+      "emberrassment"
+    ],
+    "answer": 2,
+    "explanation": "The correct spelling is \"embarrassment\", with double r and double s.",
+    "source": "authored"
+  },
+  {
+    "id": "eng-spe-03",
+    "subject": "english",
+    "topic": "Spelling",
+    "stem": "Choose the correctly spelt word.",
+    "options": [
+      "neccessary",
+      "necesary",
+      "neccesary",
+      "necessary"
+    ],
+    "answer": 3,
+    "explanation": "The correct spelling is \"necessary\": one c and double s.",
+    "source": "authored"
+  },
+  {
+    "id": "eng-spe-04",
+    "subject": "english",
+    "topic": "Spelling",
+    "stem": "Choose the correctly spelt word.",
+    "options": [
+      "occurrence",
+      "occurence",
+      "ocurrence",
+      "occurrance"
+    ],
+    "answer": 0,
+    "explanation": "The correct spelling is \"occurrence\": double c, double r and -ence at the end.",
+    "source": "authored"
+  },
+  {
+    "id": "eng-spe-05",
+    "subject": "english",
+    "topic": "Spelling",
+    "stem": "Choose the correctly spelt word.",
+    "options": [
+      "priviledge",
+      "privilege",
+      "privelege",
+      "privilage"
+    ],
+    "answer": 1,
+    "explanation": "The correct spelling is \"privilege\". There is no d, and the vowels are i-i-e.",
+    "source": "authored"
+  },
+  {
+    "id": "eng-spe-06",
+    "subject": "english",
+    "topic": "Spelling",
+    "stem": "Choose the correctly spelt word.",
+    "options": [
+      "conscientous",
+      "consientious",
+      "conscientious",
+      "concientious"
+    ],
+    "answer": 2,
+    "explanation": "The correct spelling is \"conscientious\", which contains \"science\" in the middle.",
+    "source": "authored"
+  },
+  {
+    "id": "eng-spe-07",
+    "subject": "english",
+    "topic": "Spelling",
+    "stem": "Choose the correctly spelt word.",
+    "options": [
+      "commitee",
+      "comittee",
+      "committe",
+      "committee"
+    ],
+    "answer": 3,
+    "explanation": "The correct spelling is \"committee\": double m, double t and double e.",
+    "source": "authored"
+  },
+  {
+    "id": "eng-spe-08",
+    "subject": "english",
+    "topic": "Spelling",
+    "stem": "Choose the correctly spelt word.",
+    "options": [
+      "separate",
+      "seperate",
+      "separete",
+      "seprate"
+    ],
+    "answer": 0,
+    "explanation": "The correct spelling is \"separate\". Remember: there is \"a rat\" in separate.",
+    "source": "authored"
+  }
+]

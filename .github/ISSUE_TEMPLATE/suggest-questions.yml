@@ -1,0 +1,34 @@
+name: Suggest new questions
+description: No GitHub or JSON experience needed. Type your questions in plain English and we'll add them with credit.
+title: "New questions: "
+labels: ["new-questions"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Thank you for helping JAMB students! Please only send questions **you wrote yourself**. Don't copy past papers or textbooks.
+  - type: input
+    id: subject
+    attributes:
+      label: Subject and topic
+      placeholder: e.g. Physics, Motion
+    validations:
+      required: true
+  - type: textarea
+    id: questions
+    attributes:
+      label: Your questions
+      description: For each question, give the question, four options (A to D), the correct letter, and one or two sentences explaining why.
+      placeholder: |
+        1. A car travels 100 m in 20 s. What is its average speed?
+        A. 2 m/s  B. 5 m/s  C. 20 m/s  D. 2000 m/s
+        Answer: B. Average speed = distance ÷ time = 100 ÷ 20 = 5 m/s.
+    validations:
+      required: true
+  - type: checkboxes
+    id: original
+    attributes:
+      label: Licence
+      options:
+        - label: I wrote these questions myself, and I agree to share them under CC BY 4.0.
+          required: true

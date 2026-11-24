@@ -1,0 +1,38 @@
+[
+  {
+    "id": "english",
+    "name": "Use of English",
+    "topics": [
+      "Synonyms",
+      "Antonyms",
+      "Sentence completion",
+      "Concord",
+      "Question tags",
+      "Idioms and expressions",
+      "Spelling"
+    ]
+  },
+  {
+    "id": "mathematics",
+    "name": "Mathematics",
+    "topics": [
+      "Number bases",
+      "Indices",
+      "Logarithms",
+      "Percentages and interest",
+      "Sets",
+      "Linear equations",
+      "Quadratic equations",
+      "Progressions",
+      "Variation",
+      "Matrices",
+      "Coordinate geometry",
+      "Mensuration",
+      "Differentiation",
+      "Integration",
+      "Statistics",
+      "Probability",
+      "Permutation and combination"
+    ]
+  }
+]

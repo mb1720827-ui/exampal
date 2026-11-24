@@ -1,68 +1,83 @@
-# ExamPal
+# ExamPal: the open UTME question bank
 
-**Free JAMB UTME practice in Use of English and Mathematics, with a clear explanation for every answer and practice that focuses on each student's weak topics.**
+**An open, verified bank of JAMB UTME practice questions that anyone can use, check and improve, plus a free practice app built on it.**
 
-**Live:** https://exampal-chi.vercel.app (no account needed to start practising)
+**Practice app:** https://exampal-chi.vercel.app · **Questions:** [`bank/`](bank/) · **API:** [`/api/v1/subjects`](https://exampal-chi.vercel.app/api/v1/subjects) · **Licence:** questions CC BY 4.0, code MIT
 
-Every year about 2 million Nigerians sit the UTME. Most practise from past-question books that give an answer letter and no reason. ExamPal explains every answer, and it doesn't serve a wrong answer key: each question is verified before it ships.
+Every year about 2 million Nigerians sit the UTME. Most practise from past-question books that are copyrighted, full of mis-keyed answers and give no reasons. This bank is the opposite:
 
-## What it does
+- **Open:** free to reuse in any app, website or class, with credit (CC BY 4.0).
+- **Verified:** every question passes automated checks before it's merged, and maths answers are computed by code.
+- **Explained:** every answer comes with a short explanation.
+- **Community-built:** teachers and students add questions by pull request (or a plain-English form) and are credited in the app.
 
-- **Practise in 10-question sessions**, by subject or by single topic, on any phone. No account needed to start.
-- **Learn from every answer**: you see straight away whether you were right, and why.
-- **Track weak topics**: signed-in students see their accuracy per topic and can practise only the topics they find hardest. Questions they've seen recently are skipped.
-- **Light on data**: a whole session is one page load and one save at the end, which matters on slow or expensive connections.
+## What's in it
 
-## How the questions are kept correct
+| Subject | Questions | How |
+|---|---|---|
+| Use of English | 64 across 7 topics | Hand-written |
+| Mathematics | 216 across 17 topics | Generated from 18 templates with computed answers |
+| Physics, Chemistry, Biology… | [Help wanted](CONTRIBUTING.md#adding-a-new-subject) | |
 
-A practice app with wrong answers does real harm, so correctness is enforced in three layers:
+## Use the bank
+
+**In your own code:** the questions are plain JSON in [`bank/`](bank/), one file per topic.
+
+**Through the API:**
+
+```bash
+curl "https://exampal-chi.vercel.app/api/v1/subjects"
+curl "https://exampal-chi.vercel.app/api/v1/questions?subject=mathematics&topic=Indices&limit=20"
+```
+
+Each question has `stem`, four `options`, `answer` (0–3), `explanation`, `topic` and, for hand-written questions, `author`. Credit: *"Questions from the ExamPal open UTME question bank, CC BY 4.0"*, with a link to this repo.
+
+## Contribute
+
+Add questions, fix mistakes or add a whole subject. See **[CONTRIBUTING.md](CONTRIBUTING.md)**. No JSON experience? Use the [Suggest questions form](https://github.com/mb1720827-ui/exampal/issues/new?template=suggest-questions.yml). Students can tap **Report a mistake** under any question in the app.
+
+## How questions are kept correct
+
+A wrong answer key does real harm to a student, so correctness is enforced in layers:
 
 | Layer | What it does | Where |
 |---|---|---|
-| **Computed answers** | Maths questions are generated from 18 templates covering 17 UTME syllabus topics. The code works out each answer, so it can't be mis-keyed, and wrong options come from common mistakes (sign errors, forgetting a step). | `src/lib/math.ts` |
-| **Independent verification** | Tests regenerate 2,700 maths questions and check every answer a *different* way from the template: substituting roots back into the equation, numerical derivatives and integrals, brute-force counting and so on. | `src/lib/math.test.ts` |
-| **Bank checks in CI** | Every question must use a syllabus topic and have four different options, and its explanation must name the correct option. That last rule catches an answer key pointing at the wrong letter. | `src/lib/bank.test.ts` |
-| **AI blind-answer eval** | `npm run eval` has Claude answer every question **without seeing the key**, then reports the agreement rate per topic and lists anything it disagreed with or found ambiguous, for a person to review. | `scripts/eval.ts` |
+| **Contributor checks** | `npm run check` validates every question and explains problems in plain words: unknown fields, topics outside the syllabus, duplicates, repeated options, and explanations that don't name the correct option (which catches mis-keyed answers). It runs on every pull request. | `src/lib/load-bank.ts` |
+| **Computed answers** | Maths questions are generated from templates; the code works out each answer and builds wrong options from common mistakes. | `src/lib/math.ts` |
+| **Independent verification** | Tests regenerate 2,700 maths questions and check every answer a different way: substituting roots, numerical calculus, brute-force counting. | `src/lib/math.test.ts` |
+| **AI blind-answer eval** | `npm run eval` has Claude answer each question **without seeing the key** and reports agreement per topic, plus anything to review. | `scripts/eval.ts` |
 
-<!-- After the first eval run, add the result here, e.g. "Latest eval: 99.3% answer-key agreement on 280 questions." -->
+## The practice app
+
+- 10-question sessions by subject or topic, on any phone, with no account needed.
+- Instant feedback with an explanation, credit for the question's author and a **Report a mistake** link.
+- Signed-in students track accuracy per topic and practise their **weak topics**. Recently seen questions are skipped.
+- Light on data: one page load and one save per session.
+
+**Architecture:** the bank is compiled from `bank/` at build time (`npm run bank`, run automatically before dev, build and test), so the live app needs no database for questions and never calls an AI model. Supabase stores only each student's answers, protected by row-level security. Subject, topic and correctness are worked out on the server from the bank, never trusted from the browser.
 
 ## Tech stack
 
 Next.js (App Router, Server Actions, Cache Components) · TypeScript · Tailwind CSS · Supabase (Postgres, Auth, row-level security) · Claude API (evals) · Zod · Vitest · GitHub Actions
 
-## Design decisions
-
-- **Questions live in the repo, not the database.** They're versioned, reviewed in pull requests and tested in CI. The database stores only each student's answers (`exampal_attempts`), protected by row-level security so students can only read their own.
-- **The server decides what counts as correct.** When a session is saved, subject, topic and correctness are looked up from the question bank rather than trusted from the browser.
-- **Options are shuffled per session**, so the right answer isn't always in the same place.
-- **No AI cost at runtime.** The live app never calls an AI model. AI is used offline to check questions.
-
 ## Run it locally
 
-1. Create a free project at [supabase.com](https://supabase.com) and run [`supabase/migrations/20261124000000_exampal_attempts.sql`](supabase/migrations/20261124000000_exampal_attempts.sql) in its SQL Editor.
+1. Create a free project at [supabase.com](https://supabase.com) and run the SQL files in [`supabase/migrations/`](supabase/migrations/) in its SQL Editor.
 2. In Supabase, go to Authentication › URL Configuration and add `http://localhost:3000/auth/callback` to the redirect URLs.
-3. Copy the environment file and fill in your keys, then start the app:
+3. Then:
 
    ```bash
-   cp .env.example .env.local
+   cp .env.example .env.local   # fill in your Supabase URL and publishable key
    npm install
    npm run dev
    ```
 
-## Scripts
-
 ```bash
-npm test            # all tests, including the question-bank checks
-npm run bank        # rebuild src/data/mathematics.json after changing the templates
-npm run eval        # AI blind-answer eval (needs ANTHROPIC_API_KEY); try --limit 20 first
+npm run check   # validate the question bank
+npm test        # all tests
+npm run eval    # AI blind-answer eval (needs ANTHROPIC_API_KEY); try --limit 20 first
 ```
 
-## Roadmap
+## Licence
 
-- Biology, Physics, Chemistry and Literature
-- Comprehension passages and Oral English
-- Timed mock exams in the real UTME format
-
-## License
-
-MIT
+Questions (`bank/` and generated maths questions): [CC BY 4.0](bank/LICENSE). Code: [MIT](LICENSE).

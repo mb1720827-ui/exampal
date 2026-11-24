@@ -1,0 +1,122 @@
+[
+  {
+    "id": "eng-con-01",
+    "subject": "english",
+    "topic": "Concord",
+    "stem": "Choose the option that best completes the sentence: Neither of the boys ___ been to Lagos before.",
+    "options": [
+      "have",
+      "are",
+      "were",
+      "has"
+    ],
+    "answer": 3,
+    "explanation": "\"Neither of\" refers to one person at a time, so it takes a singular verb: \"has\".",
+    "source": "authored"
+  },
+  {
+    "id": "eng-con-02",
+    "subject": "english",
+    "topic": "Concord",
+    "stem": "Choose the option that best completes the sentence: Each of the candidates ___ given a pencil and an answer sheet.",
+    "options": [
+      "was",
+      "were",
+      "are",
+      "have"
+    ],
+    "answer": 0,
+    "explanation": "\"Each\" refers to one candidate at a time, so the singular verb \"was\" is correct.",
+    "source": "authored"
+  },
+  {
+    "id": "eng-con-03",
+    "subject": "english",
+    "topic": "Concord",
+    "stem": "Choose the option that best completes the sentence: The news from the village ___ very encouraging.",
+    "options": [
+      "are",
+      "is",
+      "were",
+      "have"
+    ],
+    "answer": 1,
+    "explanation": "\"News\" looks plural but is an uncountable noun, so it takes the singular verb \"is\".",
+    "source": "authored"
+  },
+  {
+    "id": "eng-con-04",
+    "subject": "english",
+    "topic": "Concord",
+    "stem": "Choose the option that best completes the sentence: Mathematics ___ my favourite subject.",
+    "options": [
+      "are",
+      "were",
+      "is",
+      "have been"
+    ],
+    "answer": 2,
+    "explanation": "\"Mathematics\" is the name of one subject, so it takes the singular verb \"is\".",
+    "source": "authored"
+  },
+  {
+    "id": "eng-con-05",
+    "subject": "english",
+    "topic": "Concord",
+    "stem": "Choose the option that best completes the sentence: Bread and butter ___ his usual breakfast.",
+    "options": [
+      "are",
+      "were",
+      "have",
+      "is"
+    ],
+    "answer": 3,
+    "explanation": "\"Bread and butter\" is thought of as one meal, so it takes the singular verb \"is\".",
+    "source": "authored"
+  },
+  {
+    "id": "eng-con-06",
+    "subject": "english",
+    "topic": "Concord",
+    "stem": "Choose the option that best completes the sentence: One of the girls ___ lost her bag.",
+    "options": [
+      "has",
+      "have",
+      "are",
+      "were"
+    ],
+    "answer": 0,
+    "explanation": "The subject is \"one\", not \"girls\", so the singular verb \"has\" is correct.",
+    "source": "authored"
+  },
+  {
+    "id": "eng-con-07",
+    "subject": "english",
+    "topic": "Concord",
+    "stem": "Choose the option that best completes the sentence: Either the teacher or the students ___ to blame for the noise.",
+    "options": [
+      "is",
+      "are",
+      "was",
+      "has"
+    ],
+    "answer": 1,
+    "explanation": "With \"either ... or\", the verb agrees with the nearer subject. \"Students\" is plural, so use \"are\".",
+    "source": "authored"
+  },
+  {
+    "id": "eng-con-08",
+    "subject": "english",
+    "topic": "Concord",
+    "stem": "Choose the option that best completes the sentence: The number of applicants ___ increased this year.",
+    "options": [
+      "have",
+      "are",
+      "has",
+      "were"
+    ],
+    "answer": 2,
+    "explanation": "\"The number of\" is singular, so it takes \"has\". (\"A number of applicants\" would be plural.)",
+    "source": "authored"
+  }
+]

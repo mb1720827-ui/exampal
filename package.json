@@ -9,7 +9,11 @@
     "lint": "eslint",
     "test": "vitest run",
     "eval": "tsx scripts/eval.ts",
-    "bank": "tsx scripts/build-math-bank.ts"
+    "bank": "tsx scripts/build-bank.ts",
+    "check": "tsx scripts/build-bank.ts",
+    "predev": "npm run bank --silent",
+    "prebuild": "npm run bank --silent",
+    "pretest": "npm run bank --silent"
   },
   "dependencies": {
     "@anthropic-ai/sdk": "^1.13.0",

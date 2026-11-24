@@ -1,45 +1,80 @@
+import { mkdtempSync, mkdirSync, writeFileSync } from "node:fs";
+import { tmpdir } from "node:os";
+import { join } from "node:path";
 import { describe, expect, it } from "vitest";
-import english from "@/data/english.json";
-import mathematics from "@/data/mathematics.json";
-import { buildMathBank } from "./math";
-import { QuestionSchema, SUBJECT_IDS, TOPICS } from "./questions";
+import { loadBank } from "./load-bank";
 
-const banks = { english: QuestionSchema.array().parse(english), mathematics: QuestionSchema.array().parse(mathematics) };
-const all = Object.values(banks).flat();
+// These checks run in CI on every pull request, so a broken or mis-keyed question can never reach students.
+describe("the real question bank", () => {
+  const { bank, problems } = loadBank(join(process.cwd(), "bank"));
 
-// These checks run in CI, so a broken or mis-keyed question can never reach students.
-describe("question banks", () => {
-  it("every question id is unique", () => {
-    expect(new Set(all.map((q) => q.id)).size).toBe(all.length);
+  it("has no problems", () => {
+    expect(problems).toEqual([]);
   });
 
-  it("no question appears twice", () => {
-    const keys = all.map((q) => `${q.stem}|${q.options.join("|")}`);
-    expect(new Set(keys).size).toBe(keys.length);
+  it("includes the generated maths and the written English questions", () => {
+    expect(bank.questions.filter((q) => q.subject === "mathematics" && q.source === "template").length).toBe(216);
+    expect(bank.questions.filter((q) => q.subject === "english").length).toBeGreaterThanOrEqual(64);
+  });
+});
+
+/** Builds a throwaway bank with one English topic file, to check the messages contributors see. */
+function bankWith(questions: unknown, subjects: unknown = [{ id: "english", name: "Use of English", topics: ["Spelling"] }]) {
+  const root = mkdtempSync(join(tmpdir(), "bank-"));
+  writeFileSync(join(root, "subjects.json"), JSON.stringify(subjects));
+  mkdirSync(join(root, "english"));
+  writeFileSync(join(root, "english", "spelling.json"), typeof questions === "string" ? questions : JSON.stringify(questions));
+  return loadBank(root);
+}
+
+const good = {
+  id: "eng-spe-x1",
+  subject: "english",
+  topic: "Spelling",
+  stem: "Choose the correctly spelt word.",
+  options: ["recieve", "receive", "receeve", "riceive"],
+  answer: 1,
+  explanation: "The correct spelling is \"receive\": i before e, except after c.",
+  source: "authored",
+  author: "ada-lovelace",
+};
+
+describe("checks contributors get", () => {
+  it("accepts a well-formed question with author credit", () => {
+    const { bank, problems } = bankWith([good]);
+    expect(problems).toEqual([]);
+    expect(bank.questions[0].author).toBe("ada-lovelace");
   });
 
-  for (const subject of SUBJECT_IDS) {
-    it(`${subject}: every question uses a syllabus topic, and every topic has questions`, () => {
-      const used = new Set(banks[subject].map((q) => q.topic));
-      for (const q of banks[subject]) expect(TOPICS[subject], q.id).toContain(q.topic);
-      for (const topic of TOPICS[subject]) expect(used, topic).toContain(topic);
-    });
-  }
+  const messageFor = (questions: unknown, subjects?: unknown) => bankWith(questions, subjects).problems.map((p) => `${p.id ?? ""}: ${p.message}`).join("\n");
 
-  it("every question has four different options", () => {
-    for (const q of all) expect(new Set(q.options.map((o) => o.trim().toLowerCase())).size, q.id).toBe(4);
+  it("catches an answer key pointing at the wrong option", () => {
+    expect(messageFor([{ ...good, answer: 0 }])).toMatch(/explanation must mention the correct option \("recieve"\)/);
   });
 
-  it("every explanation names the correct option, which catches answer keys pointing at the wrong one", () => {
-    for (const q of all) expect(q.explanation.toLowerCase(), q.id).toContain(q.options[q.answer].toLowerCase());
+  it("catches misspelt fields", () => {
+    const misspelt: Record<string, unknown> = { ...good, anwser: 1 };
+    delete misspelt.answer;
+    expect(messageFor([misspelt])).toMatch(/unknown field\(s\) "anwser"/);
   });
 
-  it("hand-written answers are spread across A to D", () => {
-    const positions = banks.english.map((q) => q.answer);
-    for (const p of [0, 1, 2, 3]) expect(positions.filter((x) => x === p).length).toBeGreaterThan(positions.length / 8);
+  it("catches topics that aren't in the syllabus list", () => {
+    expect(messageFor([{ ...good, topic: "Phonics" }])).toMatch(/topic "Phonics" isn't listed for english.*Use one of: Spelling/);
   });
 
-  it("mathematics.json matches the templates (run `npm run bank` after changing them)", () => {
-    expect(banks.mathematics).toEqual(buildMathBank());
+  it("catches duplicate ids and duplicate questions", () => {
+    const text = messageFor([good, { ...good, id: "eng-spe-x2" }, { ...good, stem: "Pick the right spelling." }]);
+    expect(text).toMatch(/eng-spe-x2: this question is a duplicate of eng-spe-x1/);
+    expect(text).toMatch(/the id "eng-spe-x1" is already used/);
+  });
+
+  it("catches repeated options, the wrong subject and invalid JSON", () => {
+    expect(messageFor([{ ...good, options: ["receive", "Receive", "recieve", "riceive"] }])).toMatch(/four options must all be different/);
+    expect(messageFor([{ ...good, subject: "maths" }])).toMatch(/"subject" must be "english"/);
+    expect(messageFor("[ { not json")).toMatch(/isn't valid JSON/);
+  });
+
+  it("catches a broken subjects.json", () => {
+    expect(messageFor([good], [{ id: "English!", name: "E", topics: [] }])).toMatch(/lowercase letters and hyphens/);
   });
 });

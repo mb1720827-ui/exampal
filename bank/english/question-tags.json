@@ -1,0 +1,122 @@
+[
+  {
+    "id": "eng-tag-01",
+    "subject": "english",
+    "topic": "Question tags",
+    "stem": "Choose the correct question tag: He hardly ever comes late, ___?",
+    "options": [
+      "doesn't he",
+      "isn't he",
+      "is he",
+      "does he"
+    ],
+    "answer": 3,
+    "explanation": "\"Hardly\" makes the sentence negative, so the tag must be positive: \"does he\".",
+    "source": "authored"
+  },
+  {
+    "id": "eng-tag-02",
+    "subject": "english",
+    "topic": "Question tags",
+    "stem": "Choose the correct question tag: Let's go to the library, ___?",
+    "options": [
+      "shall we",
+      "will we",
+      "won't we",
+      "don't we"
+    ],
+    "answer": 0,
+    "explanation": "A suggestion that starts with \"Let's\" always takes the tag \"shall we\".",
+    "source": "authored"
+  },
+  {
+    "id": "eng-tag-03",
+    "subject": "english",
+    "topic": "Question tags",
+    "stem": "Choose the correct question tag: You are coming with us, ___?",
+    "options": [
+      "are you",
+      "aren't you",
+      "isn't it",
+      "won't you"
+    ],
+    "answer": 1,
+    "explanation": "A positive statement with \"are\" takes a negative tag with the same verb: \"aren't you\".",
+    "source": "authored"
+  },
+  {
+    "id": "eng-tag-04",
+    "subject": "english",
+    "topic": "Question tags",
+    "stem": "Choose the correct question tag: She can swim very well, ___?",
+    "options": [
+      "can she",
+      "doesn't she",
+      "can't she",
+      "isn't it"
+    ],
+    "answer": 2,
+    "explanation": "The statement is positive and uses \"can\", so the tag is negative with the same helping verb: \"can't she\".",
+    "source": "authored"
+  },
+  {
+    "id": "eng-tag-05",
+    "subject": "english",
+    "topic": "Question tags",
+    "stem": "Choose the correct question tag: Nobody called while I was out, ___?",
+    "options": [
+      "didn't they",
+      "did he",
+      "didn't he",
+      "did they"
+    ],
+    "answer": 3,
+    "explanation": "\"Nobody\" makes the statement negative, so the tag is positive, and \"nobody\" is replaced by \"they\": \"did they\".",
+    "source": "authored"
+  },
+  {
+    "id": "eng-tag-06",
+    "subject": "english",
+    "topic": "Question tags",
+    "stem": "Choose the correct question tag: I am your friend, ___?",
+    "options": [
+      "aren't I",
+      "amn't I",
+      "am not I",
+      "isn't it"
+    ],
+    "answer": 0,
+    "explanation": "The accepted negative tag for \"I am\" is \"aren't I\".",
+    "source": "authored"
+  },
+  {
+    "id": "eng-tag-07",
+    "subject": "english",
+    "topic": "Question tags",
+    "stem": "Choose the correct question tag: They have finished the project, ___?",
+    "options": [
+      "didn't they",
+      "haven't they",
+      "hasn't it",
+      "have they"
+    ],
+    "answer": 1,
+    "explanation": "A positive statement with \"have\" takes a negative tag with the same verb: \"haven't they\".",
+    "source": "authored"
+  },
+  {
+    "id": "eng-tag-08",
+    "subject": "english",
+    "topic": "Question tags",
+    "stem": "Choose the correct question tag: The boys never listen to advice, ___?",
+    "options": [
+      "don't they",
+      "didn't they",
+      "do they",
+      "are they"
+    ],
+    "answer": 2,
+    "explanation": "\"Never\" makes the statement negative, so the tag is positive: \"do they\".",
+    "source": "authored"
+  }
+]

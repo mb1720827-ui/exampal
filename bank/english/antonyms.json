@@ -1,0 +1,152 @@
+[
+  {
+    "id": "eng-ant-01",
+    "subject": "english",
+    "topic": "Antonyms",
+    "stem": "Choose the option opposite in meaning to the word in capitals: Chief Okafor is known to be GENEROUS to the poor.",
+    "options": [
+      "kind",
+      "humble",
+      "rich",
+      "stingy"
+    ],
+    "answer": 3,
+    "explanation": "Generous means willing to give freely. Its opposite is \"stingy\", meaning unwilling to give.",
+    "source": "authored"
+  },
+  {
+    "id": "eng-ant-02",
+    "subject": "english",
+    "topic": "Antonyms",
+    "stem": "Choose the option opposite in meaning to the word in capitals: Observers said the election process was TRANSPARENT.",
+    "options": [
+      "secretive",
+      "open",
+      "peaceful",
+      "fair"
+    ],
+    "answer": 0,
+    "explanation": "A transparent process is open for everyone to see, so the opposite is \"secretive\".",
+    "source": "authored"
+  },
+  {
+    "id": "eng-ant-03",
+    "subject": "english",
+    "topic": "Antonyms",
+    "stem": "Choose the option opposite in meaning to the word in capitals: Yams were ABUNDANT during the harvest season.",
+    "options": [
+      "plentiful",
+      "scarce",
+      "cheap",
+      "fresh"
+    ],
+    "answer": 1,
+    "explanation": "Abundant means existing in large quantities. The opposite is \"scarce\". \"Plentiful\" means the same as abundant.",
+    "source": "authored"
+  },
+  {
+    "id": "eng-ant-04",
+    "subject": "english",
+    "topic": "Antonyms",
+    "stem": "Choose the option opposite in meaning to the word in capitals: Despite his success, the musician remained HUMBLE.",
+    "options": [
+      "modest",
+      "wealthy",
+      "arrogant",
+      "polite"
+    ],
+    "answer": 2,
+    "explanation": "Humble means not thinking you are better than others. The opposite is \"arrogant\".",
+    "source": "authored"
+  },
+  {
+    "id": "eng-ant-05",
+    "subject": "english",
+    "topic": "Antonyms",
+    "stem": "Choose the option opposite in meaning to the word in capitals: Use of English is COMPULSORY for all UTME candidates.",
+    "options": [
+      "important",
+      "difficult",
+      "required",
+      "optional"
+    ],
+    "answer": 3,
+    "explanation": "Compulsory means something you must do. The opposite is \"optional\", meaning you may choose.",
+    "source": "authored"
+  },
+  {
+    "id": "eng-ant-06",
+    "subject": "english",
+    "topic": "Antonyms",
+    "stem": "Choose the option opposite in meaning to the word in capitals: The closure of the bridge is only TEMPORARY.",
+    "options": [
+      "permanent",
+      "brief",
+      "partial",
+      "sudden"
+    ],
+    "answer": 0,
+    "explanation": "Temporary means lasting for a limited time. The opposite is \"permanent\".",
+    "source": "authored"
+  },
+  {
+    "id": "eng-ant-07",
+    "subject": "english",
+    "topic": "Antonyms",
+    "stem": "Choose the option opposite in meaning to the word in capitals: Funke is a DILIGENT student.",
+    "options": [
+      "hardworking",
+      "lazy",
+      "intelligent",
+      "quiet"
+    ],
+    "answer": 1,
+    "explanation": "Diligent means hardworking and careful. The opposite is \"lazy\".",
+    "source": "authored"
+  },
+  {
+    "id": "eng-ant-08",
+    "subject": "english",
+    "topic": "Antonyms",
+    "stem": "Choose the option opposite in meaning to the word in capitals: The hotel lobby was decorated with ARTIFICIAL flowers.",
+    "options": [
+      "plastic",
+      "colourful",
+      "natural",
+      "beautiful"
+    ],
+    "answer": 2,
+    "explanation": "Artificial means made by people rather than occurring in nature. The opposite is \"natural\".",
+    "source": "authored"
+  },
+  {
+    "id": "eng-ant-09",
+    "subject": "english",
+    "topic": "Antonyms",
+    "stem": "Choose the option opposite in meaning to the word in capitals: Emeka was RELUCTANT to lend out his textbook.",
+    "options": [
+      "unwilling",
+      "afraid",
+      "slow",
+      "eager"
+    ],
+    "answer": 3,
+    "explanation": "Reluctant means unwilling. The opposite is \"eager\", meaning keen to do something.",
+    "source": "authored"
+  },
+  {
+    "id": "eng-ant-10",
+    "subject": "english",
+    "topic": "Antonyms",
+    "stem": "Choose the option opposite in meaning to the word in capitals: The coach was OPTIMISTIC about the final match.",
+    "options": [
+      "pessimistic",
+      "hopeful",
+      "confident",
+      "excited"
+    ],
+    "answer": 0,
+    "explanation": "Optimistic means expecting a good outcome. The opposite is \"pessimistic\", expecting a bad one.",
+    "source": "authored"
+  }
+]

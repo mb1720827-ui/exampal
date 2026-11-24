@@ -1,0 +1,152 @@
+[
+  {
+    "id": "eng-com-01",
+    "subject": "english",
+    "topic": "Sentence completion",
+    "stem": "Choose the option that best completes the sentence: If I ___ you, I would accept the scholarship.",
+    "options": [
+      "am",
+      "was",
+      "were",
+      "will be"
+    ],
+    "answer": 2,
+    "explanation": "An imaginary condition (\"If I were you\") takes \"were\" for every subject in formal English.",
+    "source": "authored"
+  },
+  {
+    "id": "eng-com-02",
+    "subject": "english",
+    "topic": "Sentence completion",
+    "stem": "Choose the option that best completes the sentence: By the time we arrived at the hall, the lecture ___.",
+    "options": [
+      "started",
+      "had started",
+      "has started",
+      "was start"
+    ],
+    "answer": 1,
+    "explanation": "The lecture began before another past action (our arrival), so the past perfect \"had started\" is needed.",
+    "source": "authored"
+  },
+  {
+    "id": "eng-com-03",
+    "subject": "english",
+    "topic": "Sentence completion",
+    "stem": "Choose the option that best completes the sentence: She has been living in Abuja ___ 2019.",
+    "options": [
+      "for",
+      "from",
+      "in",
+      "since"
+    ],
+    "answer": 3,
+    "explanation": "Use \"since\" with a point in time (2019) and \"for\" with a length of time (seven years).",
+    "source": "authored"
+  },
+  {
+    "id": "eng-com-04",
+    "subject": "english",
+    "topic": "Sentence completion",
+    "stem": "Choose the option that best completes the sentence: The students were warned to desist ___ noise-making.",
+    "options": [
+      "from",
+      "to",
+      "in",
+      "on"
+    ],
+    "answer": 0,
+    "explanation": "The verb \"desist\" is always followed by \"from\": to desist from doing something.",
+    "source": "authored"
+  },
+  {
+    "id": "eng-com-05",
+    "subject": "english",
+    "topic": "Sentence completion",
+    "stem": "Choose the option that best completes the sentence: The man ___ car was stolen reported the matter to the police.",
+    "options": [
+      "who",
+      "whose",
+      "whom",
+      "which"
+    ],
+    "answer": 1,
+    "explanation": "The car belongs to the man, and \"whose\" is the relative pronoun that shows possession.",
+    "source": "authored"
+  },
+  {
+    "id": "eng-com-06",
+    "subject": "english",
+    "topic": "Sentence completion",
+    "stem": "Choose the option that best completes the sentence: I look forward to ___ from you soon.",
+    "options": [
+      "hear",
+      "heard",
+      "hearing",
+      "be hearing"
+    ],
+    "answer": 2,
+    "explanation": "In \"look forward to\", \"to\" is a preposition, so it is followed by the -ing form: \"hearing\".",
+    "source": "authored"
+  },
+  {
+    "id": "eng-com-07",
+    "subject": "english",
+    "topic": "Sentence completion",
+    "stem": "Choose the option that best completes the sentence: Tobi is the ___ of the two brothers.",
+    "options": [
+      "tall",
+      "tallest",
+      "most tall",
+      "taller"
+    ],
+    "answer": 3,
+    "explanation": "When comparing exactly two people, use the comparative form \"taller\", not the superlative.",
+    "source": "authored"
+  },
+  {
+    "id": "eng-com-08",
+    "subject": "english",
+    "topic": "Sentence completion",
+    "stem": "Choose the option that best completes the sentence: We have run ___ of fuel, so we must stop at the next filling station.",
+    "options": [
+      "out",
+      "off",
+      "down",
+      "away"
+    ],
+    "answer": 0,
+    "explanation": "To \"run out\" of something means to have none left, so \"out\" is correct.",
+    "source": "authored"
+  },
+  {
+    "id": "eng-com-09",
+    "subject": "english",
+    "topic": "Sentence completion",
+    "stem": "Choose the option that best completes the sentence: Hardly had the bell rung ___ the students rushed out of the class.",
+    "options": [
+      "than",
+      "when",
+      "then",
+      "that"
+    ],
+    "answer": 1,
+    "explanation": "\"Hardly\" is paired with \"when\" in this structure: Hardly had X happened when Y happened. (\"No sooner\" is paired with \"than\".)",
+    "source": "authored"
+  },
+  {
+    "id": "eng-com-10",
+    "subject": "english",
+    "topic": "Sentence completion",
+    "stem": "Choose the option that best completes the sentence: The doctor advised him to abstain ___ alcohol.",
+    "options": [
+      "in",
+      "off",
+      "from",
+      "against"
+    ],
+    "answer": 2,
+    "explanation": "The verb \"abstain\" takes the preposition \"from\": to abstain from something.",
+    "source": "authored"
+  }
+]

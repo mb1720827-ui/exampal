@@ -4,6 +4,7 @@ import Link from "next/link";
 import { useRouter } from "next/navigation";
 import { useEffect, useRef, useState } from "react";
 import { LETTERS, type Question } from "@/lib/questions";
+import { reportMistakeUrl } from "@/lib/site";
 import { saveAttempts } from "../actions";
 
 interface Props {
@@ -142,6 +143,19 @@ export function PracticeSession({ questions, title, signedIn }: Props) {
           >
             <p className="font-semibold">{picked === q.answer ? "Correct!" : `The answer is ${LETTERS[q.answer]}.`}</p>
             <p className="mt-1 leading-relaxed text-zinc-700 dark:text-zinc-300">{q.explanation}</p>
+            <p className="mt-3 flex flex-wrap gap-x-4 gap-y-1 text-xs text-zinc-500">
+              {q.author && (
+                <span>
+                  Question by{" "}
+                  <a href={`https://github.com/${q.author}`} className="underline">
+                    @{q.author}
+                  </a>
+                </span>
+              )}
+              <a href={reportMistakeUrl(q.id)} target="_blank" rel="noopener noreferrer" className="underline">
+                Report a mistake
+              </a>
+            </p>
           </div>
           <button
             onClick={() => setIndex((n) => n + 1)}

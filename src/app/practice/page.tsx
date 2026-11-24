@@ -1,9 +1,8 @@
 import Link from "next/link";
 import { connection } from "next/server";
 import { Suspense } from "react";
-import { getBank } from "@/lib/bank";
+import { getBank, getSubject } from "@/lib/bank";
 import { pickQuestions, topicStats, weakTopics, type Attempt } from "@/lib/practice";
-import { isSubject, SUBJECTS, TOPICS } from "@/lib/questions";
 import { createClient } from "@/lib/supabase/server";
 import { PracticeSession } from "./practice-session";
 
@@ -21,8 +20,8 @@ export default function PracticePage({ searchParams }: PageProps<"/practice">) {
 
 async function Practice({ searchParams }: Pick<PageProps<"/practice">, "searchParams">) {
   const params = await searchParams;
-  const subject = params.subject;
-  if (!isSubject(subject)) {
+  const found = getSubject(params.subject);
+  if (!found) {
     return (
       <p>
         Choose a subject on the{" "}
@@ -33,7 +32,8 @@ async function Practice({ searchParams }: Pick<PageProps<"/practice">, "searchPa
       </p>
     );
   }
-  const topic = typeof params.topic === "string" && TOPICS[subject].includes(params.topic) ? params.topic : undefined;
+  const { id: subject, name } = found;
+  const topic = typeof params.topic === "string" && found.topics.includes(params.topic) ? params.topic : undefined;
   const weakMode = params.mode === "weak";
 
   const supabase = await createClient();
@@ -57,13 +57,13 @@ async function Practice({ searchParams }: Pick<PageProps<"/practice">, "searchPa
 
   await connection(); // a fresh random set on every visit
   const questions = pickQuestions(getBank(subject), Math.random, { count: QUESTIONS_PER_SESSION, topic, focus, recent });
-  const title = topic ?? (focus.length > 0 ? "Your weak topics" : SUBJECTS[subject]);
+  const detail = topic ?? (focus.length > 0 ? "Your weak topics" : null);
 
   return (
     <PracticeSession
       key={questions.map((q) => q.id).join()}
       questions={questions}
-      title={`${SUBJECTS[subject]}${title === SUBJECTS[subject] ? "" : ` · ${title}`}`}
+      title={detail ? `${name} · ${detail}` : name}
       signedIn={Boolean(user)}
     />
   );

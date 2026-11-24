@@ -9,11 +9,13 @@
 // Needs ANTHROPIC_API_KEY. Results are written to evals/results/.
 import Anthropic from "@anthropic-ai/sdk";
 import { zodOutputFormat } from "@anthropic-ai/sdk/helpers/zod";
-import { mkdirSync, readFileSync, writeFileSync } from "node:fs";
+import { mkdirSync, writeFileSync } from "node:fs";
+import { fileURLToPath } from "node:url";
 import { parseArgs } from "node:util";
 import { z } from "zod";
 import { PROBLEMS, summarizeEval, type EvalResult } from "../src/lib/eval-score";
-import { LETTERS, QuestionSchema, SUBJECTS, type Question } from "../src/lib/questions";
+import { loadBank } from "../src/lib/load-bank";
+import { LETTERS, type Question } from "../src/lib/questions";
 
 const { values: args } = parseArgs({
   options: {
@@ -24,9 +26,9 @@ const { values: args } = parseArgs({
   },
 });
 
-const load = (file: string) =>
-  QuestionSchema.array().parse(JSON.parse(readFileSync(new URL(`../src/data/${file}.json`, import.meta.url), "utf8")));
-let questions: Question[] = [...load("english"), ...load("mathematics")];
+const { bank } = loadBank(fileURLToPath(new URL("../bank", import.meta.url)));
+const subjectName = new Map(bank.subjects.map((s) => [s.id, s.name]));
+let questions: Question[] = bank.questions;
 if (args.subject !== "all") questions = questions.filter((q) => q.subject === args.subject);
 if (args.limit) questions = questions.slice(0, Number(args.limit));
 
@@ -50,7 +52,7 @@ async function judge(q: Question): Promise<EvalResult> {
     model: args.model,
     max_tokens: 16000,
     system: SYSTEM,
-    messages: [{ role: "user", content: `Subject: ${SUBJECTS[q.subject]}\nTopic: ${q.topic}\n\n${q.stem}\n\n${options}` }],
+    messages: [{ role: "user", content: `Subject: ${subjectName.get(q.subject) ?? q.subject}\nTopic: ${q.topic}\n\n${q.stem}\n\n${options}` }],
     output_config: { format: zodOutputFormat(Verdict) },
   });
   const verdict = response.stop_reason === "refusal" ? null : response.parsed_output;

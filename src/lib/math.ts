@@ -531,6 +531,6 @@ export function makeQuestion(template: Template, seed: number): { question: Ques
   };
 }
 
-export function buildMathBank(perTemplate = 12): Question[] {
+export function buildMathQuestions(perTemplate = 12): Question[] {
   return TEMPLATES.flatMap((t) => Array.from({ length: perTemplate }, (_, i) => makeQuestion(t, i + 1).question));
 }

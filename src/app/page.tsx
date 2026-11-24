@@ -1,13 +1,13 @@
 import Link from "next/link";
 import { Suspense } from "react";
-import { getBank } from "@/lib/bank";
+import { allQuestions, getBank, SUBJECTS, topicCounts } from "@/lib/bank";
 import { topicStats, weakTopics, type Attempt } from "@/lib/practice";
-import { SUBJECT_IDS, SUBJECTS, TOPICS, type SubjectId } from "@/lib/questions";
+import { REPO_URL } from "@/lib/site";
 import { createClient } from "@/lib/supabase/server";
 import { signOut } from "./actions";
 
 const card = "rounded-2xl border border-zinc-200 bg-white p-5 dark:border-zinc-800 dark:bg-zinc-950";
-const practiceHref = (subject: SubjectId, extra: Record<string, string> = {}) =>
+const practiceHref = (subject: string, extra: Record<string, string> = {}) =>
   `/practice?${new URLSearchParams({ subject, ...extra })}`;
 
 export default function Home() {
@@ -20,16 +20,16 @@ export default function Home() {
       <section>
         <h1 className="text-3xl font-bold tracking-tight">Practise for JAMB. Learn from every answer.</h1>
         <p className="mt-2 text-zinc-600 dark:text-zinc-400">
-          Free UTME practice in Use of English and Mathematics, with a clear explanation for every answer. No account
-          needed to start.
+          Free UTME practice with a clear explanation for every answer, from an open question bank that anyone can check
+          and improve. No account needed to start.
         </p>
       </section>
 
-      {SUBJECT_IDS.map((subject) => (
+      {SUBJECTS.map(({ id: subject, name }) => (
         <section key={subject} className={card}>
           <div className="flex items-start justify-between gap-3">
             <div>
-              <h2 className="text-lg font-semibold">{SUBJECTS[subject]}</h2>
+              <h2 className="text-lg font-semibold">{name}</h2>
               <p className="text-sm text-zinc-500">{getBank(subject).length} questions</p>
             </div>
             <Link
@@ -42,7 +42,7 @@ export default function Home() {
           <details className="mt-3">
             <summary className="cursor-pointer text-sm text-zinc-600 dark:text-zinc-400">Practise one topic</summary>
             <ul className="mt-3 flex flex-wrap gap-2">
-              {TOPICS[subject].map((topic) => (
+              {topicCounts(subject).map(({ topic }) => (
                 <li key={topic}>
                   <Link
                     href={practiceHref(subject, { topic })}
@@ -61,14 +61,17 @@ export default function Home() {
         <Progress />
       </Suspense>
 
-      <footer className="pt-2 text-xs leading-relaxed text-zinc-500">
-        Maths answers are computed by code and English questions are checked automatically before they reach you.
-        Spotted a mistake? Tell us on{" "}
-        <a href="https://github.com/mb1720827-ui/exampal/issues" className="underline">
-          GitHub
+      <section className={`${card} text-sm leading-relaxed`}>
+        <h2 className="font-semibold">An open question bank</h2>
+        <p className="mt-1 text-zinc-600 dark:text-zinc-400">
+          All {allQuestions().length} questions are free to reuse (CC BY 4.0) and checked automatically before they reach
+          you. Teachers and students can add questions or fix mistakes on GitHub, and contributors are credited on
+          every question they write.
+        </p>
+        <a href={REPO_URL} className="mt-3 inline-block font-medium text-emerald-700 underline dark:text-emerald-400">
+          Contribute questions on GitHub
         </a>
-        .
-      </footer>
+      </section>
     </main>
   );
 }
@@ -132,7 +135,7 @@ async function Progress() {
   return (
     <section className={card}>
       <h2 className="text-lg font-semibold">Your progress</h2>
-      {SUBJECT_IDS.map((subject) => {
+      {SUBJECTS.map(({ id: subject, name }) => {
         const attempts: Attempt[] = rows
           .filter((r) => r.subject === subject)
           .map((r) => ({ questionId: r.question_id, topic: r.topic, correct: r.correct }));
@@ -143,7 +146,7 @@ async function Progress() {
         return (
           <div key={subject} className="mt-4">
             <div className="flex items-baseline justify-between gap-3">
-              <h3 className="font-medium">{SUBJECTS[subject]}</h3>
+              <h3 className="font-medium">{name}</h3>
               <span className="text-sm text-zinc-500">
                 {Math.round(overall * 100)}% of {attempts.length} answers
               </span>

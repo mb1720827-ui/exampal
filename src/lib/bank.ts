@@ -1,13 +1,27 @@
-import english from "@/data/english.json";
-import mathematics from "@/data/mathematics.json";
-import { QuestionSchema, type Question, type SubjectId } from "./questions";
+import { z } from "zod";
+import raw from "@/data/bank.generated.json";
+import { QuestionSchema, SubjectSchema, type Question, type Subject } from "./questions";
 
-const BANKS: Record<SubjectId, Question[]> = {
-  english: QuestionSchema.array().parse(english),
-  mathematics: QuestionSchema.array().parse(mathematics),
-};
+// Built from bank/ by `npm run bank`, which runs automatically before dev, build and test.
+const data = z.object({ subjects: SubjectSchema.array(), questions: QuestionSchema.array() }).parse(raw);
 
-const BY_ID = new Map(Object.values(BANKS).flat().map((q) => [q.id, q]));
+const BY_SUBJECT = new Map<string, Question[]>();
+for (const q of data.questions) BY_SUBJECT.set(q.subject, [...(BY_SUBJECT.get(q.subject) ?? []), q]);
+const BY_ID = new Map(data.questions.map((q) => [q.id, q]));
 
-export const getBank = (subject: SubjectId): Question[] => BANKS[subject];
+/** Subjects that have at least one question, in the order of bank/subjects.json. */
+export const SUBJECTS: Subject[] = data.subjects.filter((s) => BY_SUBJECT.has(s.id));
+
+export const getSubject = (id: unknown): Subject | undefined => SUBJECTS.find((s) => s.id === id);
+export const getBank = (subjectId: string): Question[] => BY_SUBJECT.get(subjectId) ?? [];
 export const getQuestion = (id: string): Question | undefined => BY_ID.get(id);
+export const allQuestions = (): Question[] => data.questions;
+
+/** A subject's syllabus topics that have questions, with how many each has. */
+export function topicCounts(subjectId: string): { topic: string; count: number }[] {
+  const subject = getSubject(subjectId);
+  const questions = getBank(subjectId);
+  return (subject?.topics ?? [])
+    .map((topic) => ({ topic, count: questions.filter((q) => q.topic === topic).length }))
+    .filter((t) => t.count > 0);
+}

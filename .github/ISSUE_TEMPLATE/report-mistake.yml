@@ -1,0 +1,29 @@
+name: Report a mistake in a question
+description: A wrong answer, more than one right option, a typo, or an unclear explanation.
+title: "Mistake in "
+labels: ["question-fix"]
+body:
+  - type: input
+    id: question-id
+    attributes:
+      label: Question id
+      description: Filled in for you when you tap "Report a mistake" in the app, e.g. eng-spe-03.
+    validations:
+      required: true
+  - type: dropdown
+    id: kind
+    attributes:
+      label: What's wrong?
+      options:
+        - The marked answer is wrong
+        - More than one option is correct
+        - The explanation is wrong or unclear
+        - Typo or grammar
+        - Something else
+    validations:
+      required: true
+  - type: textarea
+    id: details
+    attributes:
+      label: Details
+      description: What should it say? A source (textbook page or syllabus section) helps us fix it quickly.
