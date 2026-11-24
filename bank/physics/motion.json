@@ -1,0 +1,122 @@
+[
+  {
+    "id": "phy-motion-01",
+    "subject": "physics",
+    "topic": "Motion",
+    "stem": "A car starts from rest and accelerates uniformly at 2 m/s^2 for 5 s. Calculate the distance covered in this time.",
+    "options": [
+      "25 m",
+      "50 m",
+      "10 m",
+      "12.5 m"
+    ],
+    "answer": 0,
+    "explanation": "Using s = ut + (1/2)at^2 with u = 0: s = 0.5 x 2 x 5^2 = 25 m.",
+    "source": "generated"
+  },
+  {
+    "id": "phy-motion-02",
+    "subject": "physics",
+    "topic": "Motion",
+    "stem": "A ball is projected with a velocity of 20 m/s at an angle of 30° to the horizontal. Calculate the maximum height reached. (g = 10 m/s^2)",
+    "options": [
+      "5 m",
+      "20 m",
+      "15 m",
+      "10 m"
+    ],
+    "answer": 0,
+    "explanation": "Maximum height H = (u^2 sin^2 θ)/2g = (400 x 0.25)/20 = 5 m.",
+    "source": "generated"
+  },
+  {
+    "id": "phy-motion-03",
+    "subject": "physics",
+    "topic": "Motion",
+    "stem": "The area under a velocity-time graph represents the",
+    "options": [
+      "momentum",
+      "acceleration",
+      "force",
+      "displacement"
+    ],
+    "answer": 3,
+    "explanation": "Area under a velocity-time graph is velocity multiplied by time, which gives the displacement of the body. The slope of the same graph gives acceleration.",
+    "source": "generated"
+  },
+  {
+    "id": "phy-motion-04",
+    "subject": "physics",
+    "topic": "Motion",
+    "stem": "A 2 kg trolley moving at 6 m/s collides with a stationary 1 kg trolley and they move off together. Calculate their common velocity.",
+    "options": [
+      "12 m/s",
+      "6 m/s",
+      "4 m/s",
+      "3 m/s"
+    ],
+    "answer": 2,
+    "explanation": "By conservation of momentum, 2 x 6 = (2 + 1)v, so v = 12/3 = 4 m/s.",
+    "source": "generated"
+  },
+  {
+    "id": "phy-motion-05",
+    "subject": "physics",
+    "topic": "Motion",
+    "stem": "A body of mass 0.5 kg moves in a circle of radius 2 m with a constant speed of 4 m/s. Calculate the centripetal force acting on it.",
+    "options": [
+      "16 N",
+      "1 N",
+      "4 N",
+      "8 N"
+    ],
+    "answer": 2,
+    "explanation": "Centripetal force F = mv^2/r = (0.5 x 4^2)/2 = 8/2 = 4 N.",
+    "source": "generated"
+  },
+  {
+    "id": "phy-motion-06",
+    "subject": "physics",
+    "topic": "Motion",
+    "stem": "For a body performing simple harmonic motion, at the equilibrium position its",
+    "options": [
+      "velocity is maximum and acceleration is zero",
+      "velocity is zero and acceleration is maximum",
+      "velocity and acceleration are both maximum",
+      "velocity and acceleration are both zero"
+    ],
+    "answer": 0,
+    "explanation": "In SHM, acceleration is proportional to displacement (a = -ω^2 x), so at the equilibrium position where x = 0 the velocity is maximum and acceleration is zero.",
+    "source": "generated"
+  },
+  {
+    "id": "phy-motion-07",
+    "subject": "physics",
+    "topic": "Motion",
+    "stem": "The irregular movement of smoke particles in air, as observed under a microscope, is an example of",
+    "options": [
+      "rotational motion",
+      "translational motion",
+      "oscillatory motion",
+      "random motion"
+    ],
+    "answer": 3,
+    "explanation": "Smoke particles are bombarded unevenly by air molecules and move in a zigzag, unpredictable path (Brownian motion), which is random motion.",
+    "source": "generated"
+  },
+  {
+    "id": "phy-motion-08",
+    "subject": "physics",
+    "topic": "Motion",
+    "stem": "A constant force of 20 N acts on a body of mass 4 kg initially at rest for 3 s. Calculate the final velocity of the body.",
+    "options": [
+      "20 m/s",
+      "5 m/s",
+      "15 m/s",
+      "60 m/s"
+    ],
+    "answer": 2,
+    "explanation": "Impulse = change in momentum, so Ft = mv: 20 x 3 = 4v, giving v = 60/4 = 15 m/s.",
+    "source": "generated"
+  }
+]
