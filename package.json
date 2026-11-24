@@ -9,6 +9,7 @@
     "lint": "eslint",
     "test": "vitest run",
     "eval": "tsx scripts/eval.ts",
+    "factory": "tsx scripts/factory.ts",
     "bank": "tsx scripts/build-bank.ts",
     "check": "tsx scripts/build-bank.ts",
     "predev": "npm run bank --silent",

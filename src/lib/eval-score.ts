@@ -1,6 +1,13 @@
 export const PROBLEMS = ["ambiguous", "multiple_correct", "no_correct_option", "factual_error", "outside_syllabus"] as const;
 export type Problem = (typeof PROBLEMS)[number];
 
+/** Instructions for a blind review: the model solves each question without seeing the answer key. Used by npm run eval and npm run factory. */
+export const REVIEW_INSTRUCTIONS = `You review multiple-choice practice questions for Nigerian students preparing for the JAMB UTME.
+Solve the question yourself, carefully, without assuming any option is correct.
+- "answer": the letter of the correct option, or "none" if no option is correct.
+- "problems": list any that apply, or an empty list: "ambiguous" (the question can reasonably be read two ways), "multiple_correct", "no_correct_option", "factual_error" (the question itself states something false), "outside_syllabus" (not something the UTME syllabus covers).
+- "note": one short sentence explaining your answer or the problem.`;
+
 export interface EvalResult {
   id: string;
   topic: string;

@@ -51,7 +51,7 @@ Name the file after the topic in lowercase with hyphens: "Idioms and expressions
 | `options` | Exactly four different options. |
 | `answer` | The position of the correct option: **0 = A, 1 = B, 2 = C, 3 = D**. Options are shuffled for students, so any position is fine. |
 | `explanation` | Why the answer is right. Must contain the correct option's text. |
-| `source` | Always `"authored"` for hand-written questions. |
+| `source` | Always `"authored"` for hand-written questions. `"generated"` is set by `npm run factory` for AI-drafted ones; review those pull requests like any other. |
 | `author` | Your GitHub username (optional) for credit in the app. |
 
 ## Check your work

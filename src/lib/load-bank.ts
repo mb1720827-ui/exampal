@@ -54,7 +54,7 @@ export function loadBank(root: string): { bank: Bank; problems: Problem[] } {
         }
         const q = parsed.data;
         if (q.subject !== subject.id) problems.push({ file: at(file), id, message: `"subject" must be "${subject.id}" for questions in bank/${subject.id}/` });
-        if (q.source !== "authored") problems.push({ file: at(file), id, message: `"source" must be "authored" for questions written in bank files` });
+        if (q.source === "template") problems.push({ file: at(file), id, message: `"source" must be "authored" for questions written in bank files` });
         questions.push({ q, file: at(file) });
       });
     }

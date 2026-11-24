@@ -46,6 +46,7 @@ A wrong answer key does real harm to a student, so correctness is enforced in la
 | **Computed answers** | Maths questions are generated from templates; the code works out each answer and builds wrong options from common mistakes. | `src/lib/math.ts` |
 | **Independent verification** | Tests regenerate 2,700 maths questions and check every answer a different way: substituting roots, numerical calculus, brute-force counting. | `src/lib/math.test.ts` |
 | **AI blind-answer eval** | `npm run eval` has Claude answer each question **without seeing the key** and reports agreement per topic, plus anything to review. | `scripts/eval.ts` |
+| **AI question factory** | `npm run factory` has Claude Code draft questions for one syllabus topic. A separate run answers them blind, and only the questions it agrees with that also pass `npm run check` are kept. `--pr` opens a pull request so a person reviews each one before students see it, labelled "Drafted by AI". | `scripts/factory.ts` |
 
 ## The practice app
 
@@ -58,7 +59,7 @@ A wrong answer key does real harm to a student, so correctness is enforced in la
 
 ## Tech stack
 
-Next.js (App Router, Server Actions, Cache Components) · TypeScript · Tailwind CSS · Supabase (Postgres, Auth, row-level security) · Claude API (evals) · Zod · Vitest · GitHub Actions
+Next.js (App Router, Server Actions, Cache Components) · TypeScript · Tailwind CSS · Supabase (Postgres, Auth, row-level security) · Claude API and Claude Code (evals, question factory) · Zod · Vitest · GitHub Actions
 
 ## Run it locally
 
@@ -76,6 +77,7 @@ Next.js (App Router, Server Actions, Cache Components) · TypeScript · Tailwind
 npm run check   # validate the question bank
 npm test        # all tests
 npm run eval    # AI blind-answer eval (needs ANTHROPIC_API_KEY); try --limit 20 first
+npm run factory -- --subject physics --topic "Motion" --pr   # draft, blind-check, open a PR (uses your Claude Code login)
 ```
 
 ## Licence

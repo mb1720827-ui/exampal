@@ -152,6 +152,7 @@ export function PracticeSession({ questions, title, signedIn }: Props) {
                   </a>
                 </span>
               )}
+              {q.source === "generated" && <span>Drafted by AI, double-checked, reviewed by a person</span>}
               <a href={reportMistakeUrl(q.id)} target="_blank" rel="noopener noreferrer" className="underline">
                 Report a mistake
               </a>
