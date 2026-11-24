@@ -2,7 +2,7 @@
 
 **Free JAMB UTME practice in Use of English and Mathematics, with a clear explanation for every answer and practice that focuses on each student's weak topics.**
 
-<!-- Add after deploying: **Live:** https://your-app.vercel.app -->
+**Live:** https://exampal-chi.vercel.app (no account needed to start practising)
 
 Every year about 2 million Nigerians sit the UTME. Most practise from past-question books that give an answer letter and no reason. ExamPal explains every answer, and it doesn't serve a wrong answer key: each question is verified before it ships.
 
